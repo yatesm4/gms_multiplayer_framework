@@ -27,10 +27,10 @@ module.exports = packet = {
         var dataBuffer = Buffer.concat(packetParts, packetSize);
 
         // SIZE -> DATA, Packets that stick together upon receive will split based upon number basis
-        // ex. 4MATT4WEED4FUCK
+        // ex. 4MATT4LIKES4FOOD
         //     ^    ^    ^       - every number is a start for the character packet, like the # 4 represents a 4 character string
         //     |    |    |         and then when the next number is hit, it signals a new packet. Each string will be added to an array,
-        //    MATT|WEED|FUCK       the length identifier (int) will automatically be stripped.
+        //    MATT|LIKES|FOOD       the length identifier (int) will automatically be stripped.
 
         var size = new Buffer(1);
         size.writeUInt8(dataBuffer.length + 1, 0);
